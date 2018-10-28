@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="js/jquery-1.7.1.min.js"></script>
+<script>
+$(document).ready(function(){
+
+  $("#btn1").click(function(){
+    $("#tnilai").val($("#test").text());
+  });
+  
+  $("#btn2").click(function(){
+    $("#tnilai").val($("#test").html());
+  });
+
+  $("#btn3").click(function(){
+    $("#p2").html($("#tnilai").val());
+  });
+  
+  });
+</script>
+</head>
+
+<body>
+<p id="test">This is some <b>bold</b> text in a paragraph.</p>
+<input type=text id="tnilai" size=60>
+
+<p id="p2"> </p>
+<button id="btn1">Show Text</button>
+<button id="btn2">Show HTML</button>
+<button id="btn3">Show HTML</button>
+</body>
+</html>

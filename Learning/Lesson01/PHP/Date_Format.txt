@@ -1,0 +1,23 @@
+Date format characters' legend by examples:
+
+d - Numeric representation of a day, with leading zeros 01 through 31.
+m - Numeric representation of a month, with leading zeros 01 through 12.
+y - Numeric representation of a year, two digits.
+
+D - Textual representation of a day, three letters Mon through Sun.
+j - Numeric representation of a day, without leading zeros 1 through 31.
+n - Numeric representation of a month, without leading zeros 1 through 12.
+Y - Numeric representation of a year, four digits.
+
+S - English ordinal suffix for the day of the month. Consist of 2 characters st, nd, rd or th.
+F - Textual representation of a month, January through December.
+M - Textual representation of a month, three letters Jan through Dec.
+
+G 24-hour format of an hour without leading zeros 0 through 23.
+i Numeric representation of minutes with leading zeros 00 through 59.
+s Numeric representation of seconds with leading zeros 00 through 59.
+H 24-hour format of an hour with leading zeros 00 through 23.
+a Lowercase Ante meridiem and Post meridiem am or pm.
+g 12-hour format of an hour without leading zeros 1 through 12.
+A Uppercase Ante meridiem and Post meridiem AM or PM.
+h 12-hour format of an hour with leading zeros 01 through 12.

@@ -1,0 +1,21 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Opener</title>
+<script type='text/javascript'>
+function valideopenerform(){
+var popy= window.open('popup.htm','popup_form','menubar=no,status=no,top=100%,left=100;')
+//alert (popy.window.document.URL);
+}
+</script>
+</head>
+
+<body>
+<form name='openerform' id='openerform' >
+<input type='text' id='text1' name='text1' />
+<input type='button' value='go' onclick='valideopenerform()' />
+</form>
+
+</body>
+
+</html> 

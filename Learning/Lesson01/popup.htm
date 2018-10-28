@@ -1,0 +1,22 @@
+	<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Opener</title>
+<script type='text/javascript'>
+function validepopupform(){
+window.opener.document.openerform.text1.value=document.popupform.text2.value;
+self.close();
+}
+</script>
+
+</head>
+
+<body>
+<form id='popupform' name='popupform' >
+<input type='text' id='text2' name='text2' />
+<input type='button' value='go' onclick='validepopupform()' />
+</form>
+
+</body>
+
+</html> 

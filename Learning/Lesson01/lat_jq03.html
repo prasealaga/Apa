@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("#b1").click(function(){
+  //    $("#div1").fadeIn(); //    $("#div2").fadeIn("slow");
+    $("#div1").slideDown(1000); 
+	$("#div2").hide();	;
+	$("#div3").hide();
+  });
+
+  $("#b2").click(function(){
+    $("#div1").hide(); 
+	$("#div2").fadeIn(1000)	;
+	$("#div3").hide();
+  });
+  
+  $("#b3").click(function(){
+    $("#div1").hide(); 
+	$("#div2").hide()	;
+	$("#div3").fadeIn(1000);
+  });
+
+  });
+</script>
+</head>
+
+<body>
+<p>TEST USING FADE</p>
+<button id="b1">Show 1</button>
+<button id="b2">Show 2</button>
+<button id="b3">Show 3</button>
+
+<div id="div1" style="width:600px;height:380px;display:none;background-color:red;"><h1>Ini Layer 1</h1></div>
+<div id="div2" style="width:600px;height:380px;display:none;background-color:green;"><h1>Ini Layer 2</h1></div>
+<div id="div3" style="width:600px;height:380px;display:none;background-color:blue;"><h1>Ini Layer 3</h1></div>
+
+</body>
+</html>

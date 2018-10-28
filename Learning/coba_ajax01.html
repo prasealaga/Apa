@@ -1,0 +1,23 @@
+<html>
+<head>
+ <script>
+function yayang() 
+{
+  var x = new XMLHttpRequest();
+  x.onreadystatechange = function() 
+  {
+    document.getElementById("div01").innerHTML = this.responseText;
+  };
+  x.open("GET", "test01.txt", true);
+  x.send();
+}
+</script>
+</head>
+
+<body>
+<button onclick="yayang()">OK</button>
+ <div id = "div01">
+   Nilai awal
+ </div>
+</body>
+</html>

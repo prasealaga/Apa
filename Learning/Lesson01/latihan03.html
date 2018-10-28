@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function TestLoad(obj)
+{
+var x;
+var tc = document.getElementById("tcari").value;
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  x=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  x=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+  
+  x.onreadystatechange=function()
+  {
+  if (x.readyState==4 && x.status==200)
+    {
+    //document.getElementById("tcari").innerHTML= 
+	//x.responseText;
+	document.getElementById(obj).value = x.responseText;
+	
+    }
+  }
+x.open("GET","voption.php?obj=" + obj ,true);
+x.send();
+}
+
+function isiText()
+{
+//  document.getElementById("tcari").value = nil1;
+   TestLoad('tcari');
+   TestLoad('tcari2');
+}
+</script>
+</head>
+<body>
+<input type=text id="tcari">
+<input type=text id="tcari2">
+<Select id="tkd">
+
+</select>
+
+<button type="button" onclick="TestLoad('tcari')">
+Search</button>
+
+<button type="button" onclick="isiText()">
+OK</button>
+
+<div id="contoh">
+Ini contoh text dalam Div
+</div>
+
+</body>
+</html>

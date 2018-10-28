@@ -1,0 +1,181 @@
+<html>
+<head>
+<script>
+fill_category();
+function fill_category()
+{
+ var x = new XMLHttpRequest();
+ var file_name;
+  x.onreadystatechange = function() 
+  {
+	document.getElementById("catid").innerHTML = this.responseText;
+  };
+  file_name = "data_source.php?opt=1";
+  x.open("GET", file_name , true);
+  x.send();
+}
+
+function fill_product()
+{
+ var x = new XMLHttpRequest();
+ var file_name;
+ var cid = document.getElementById("catid").value;
+  x.onreadystatechange = function() 
+  {
+	document.getElementById("pid").innerHTML = this.responseText;
+  };
+  file_name = "data_source.php?opt=2&catid=" + cid ;
+  x.open("GET", file_name , true);
+  x.send();
+}
+
+
+
+function show_product()
+{
+
+ 
+ var x = new XMLHttpRequest();
+ var pid = document.getElementById("pid").value;
+ var file_name;
+  x.onreadystatechange = function() 
+  {
+    
+    var a = JSON.parse(this.responseText);
+	document.getElementById("pnm").value = a.pn ;
+	document.getElementById("prc").value = a.price ;
+  };
+  file_name = "data_source.php?opt=9&pid=" + pid ;
+  x.open("GET", file_name , true);
+  x.send();
+
+}
+
+function getTotal()
+{
+  var price = document.getElementById("prc").value ;
+  var qty   = document.getElementById("qty").value ;
+  var ttl = price*qty ;
+  document.getElementById("ttl").value = ttl ; 
+  
+}
+function clear_up()
+{
+  document.getElementById("pid").value="";
+  document.getElementById("pn").value="";
+  document.getElementById("prc").value="";
+  document.getElementById("pid").focus;
+  
+}
+function insert_data()
+{
+ 
+ var x = new XMLHttpRequest();
+ var pid = document.getElementById("pid").value;
+ var pname = document.getElementById("pn").value;
+ var price = document.getElementById("prc").value;
+ var file_name;
+  x.onreadystatechange = function() 
+  {
+    alert(this.responseText);
+  };
+  file_name = "data_source.php?opt=11&pid=" + pid + "&pn=" + pname + "&prc=" + price;
+  x.open("GET", file_name , true);
+  x.send();
+  clear_up()
+}
+
+function select_data()
+{
+ 
+ var x = new XMLHttpRequest();
+ var pid = document.getElementById("pid").value;
+ var file_name;
+  x.onreadystatechange = function() 
+  {
+    
+    var a = JSON.parse(this.responseText);
+	document.getElementById("pn").value = a.pn ;
+	document.getElementById("prc").value = a.price ;
+  };
+  file_name = "data_source.php?opt=12&pid=" + pid ;
+  x.open("GET", file_name , true);
+  x.send();
+}
+
+function update_data()
+{
+ 
+ var x = new XMLHttpRequest();
+ var pid = document.getElementById("pid").value;
+ var pname = document.getElementById("pn").value;
+ var price = document.getElementById("prc").value;
+ var file_name;
+  x.onreadystatechange = function() 
+  {
+    alert(this.responseText);
+  };
+  file_name = "data_source.php?opt=13&pid=" + pid + "&pn=" + pname + "&prc=" + price;
+  x.open("GET", file_name , true);
+  x.send();
+  clear_up()
+}
+
+function delete_data()
+{
+ 
+ var x = new XMLHttpRequest();
+ var pid = document.getElementById("pid").value;
+ var pname = document.getElementById("pn").value;
+ var price = document.getElementById("prc").value;
+ var file_name;
+  x.onreadystatechange = function() 
+  {
+    alert(this.responseText);
+  };
+  file_name = "data_source.php?opt=14&pid=" + pid + "&pn=" + pname + "&prc=" + price;
+  x.open("GET", file_name , true);
+  x.send();
+  clear_up()
+}
+
+</script>
+</head>
+
+<body>
+<table align="center">
+<form method="post" action="">
+  <tr><td>No Transaksi</td><td><input type="text" id="notrans" placeholder="Notrans"></td></tr>
+  <tr><td>Tanggal</td><td><input type="date" id="tgl" placeholder="Tanggal"></td></tr>
+  <tr><td>Category</td>
+          <td><select id="catid" onchange="fill_product()">
+		      <option>---- Pilih -----
+		    </select>
+		</td>
+   </tr>
+  <tr><td>Product ID</td>
+        <td><select id="pid" onchange="show_product()">
+		      <option>---- Pilih -----
+		    </select>
+		</td>
+  </tr>
+  <tr><td>Product Name</td><td><input type="text" id="pnm" placeholder="Product Name"></td></tr>
+  <tr><td>Price</td><td><input type="text" id="prc" placeholder="Price"></td></tr>
+  <tr><td>Quantity</td><td><input type="text" id="qty" placeholder="Qty" onkeyup="getTotal()"></td></tr>
+  <tr><td>Total</td><td><input type="text" id="ttl"></td></tr>
+  
+
+</table>
+<br>
+<hr width="30%" color="red" align="center">
+<table align="center">
+<tr>
+   <td><input type="Button" value="Save" id="btnSave" onclick="insert_data()">
+       <input type="Button" value="Update" id="btnUpd" onclick="update_data()">
+	   <input type="Button" value="Delete" id="btnDel" onclick="delete_data()">
+	   <input type="Button" value="Close" id="btnClose" >
+   </td>
+</tr>   
+</table>
+</body>
+</html>

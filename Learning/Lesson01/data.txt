@@ -1,0 +1,2 @@
+Selamat Datang di Ajax 
+ini contoh mengambil data dari txt

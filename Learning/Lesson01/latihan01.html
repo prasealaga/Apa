@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function TestLoad()
+{
+var x;
+var tc = document.getElementById("tcari").value;
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  x=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  x=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+  
+  x.onreadystatechange=function()
+  {
+  if (x.readyState==4 && x.status==200)
+    {
+    document.getElementById("contoh").innerHTML= 
+	x.responseText;
+    }
+  }
+x.open("GET","vtable.php?cari=" + tc,true);
+x.send();
+}
+</script>
+</head>
+<body>
+<input type=text id="tcari">
+<button type="button" onclick="TestLoad()">
+Search</button>
+
+<div id="contoh">
+Ini contoh text dalam Div
+</div>
+
+</body>
+</html>
